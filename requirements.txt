@@ -1,7 +1,7 @@
 tensorflow==2.6.3
 cython==0.29.28
 numpy==1.19.5
-pandas==1.4.1
+pandas==1.3.5
 robotoff==1.5.0
 dacite==1.6.0
 bokeh==2.4.2
