@@ -154,10 +154,7 @@ def train(
     save_json(report, save_dir / "metrics_test.json")
     save_json(clf_report, save_dir / "classification_report_test.json")
 
-
-def main():
-    args = parse_args()
-    config: Config = get_config(args)
+def run(config, output_dir):
     model_config = config.model_config
 
     output_dir = args.output_dir
@@ -201,6 +198,9 @@ def main():
         config.train_config.start_datetime = None
         config.train_config.end_datetime = None
 
+def main():
+    args = parse_args()
+    config: Config = get_config(args)
 
 if __name__ == "__main__":
     main()
