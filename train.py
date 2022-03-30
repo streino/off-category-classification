@@ -155,7 +155,7 @@ def train(
     save_json(clf_report, save_dir / "classification_report_test.json")
 
 
-def runit(config, output_dir):
+def run(config, output_dir, replicates=1):
     model_config = config.model_config
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -169,7 +169,6 @@ def runit(config, output_dir):
     )
     print("Pre-processing of training data complete.")
 
-    replicates = args.repeat
     if replicates == 1:
         save_dirs = [output_dir]
     else:
@@ -202,7 +201,7 @@ def runit(config, output_dir):
 def main():
     args = parse_args()
     config: Config = get_config(args)
-    runit(config, args.output_dir)
+    run(config, args.output_dir, args.repeat)
 
 
 if __name__ == "__main__":
