@@ -57,7 +57,7 @@ def create_tf_dataset(
             ),
             tf.TensorSpec(shape=(transformer.category_size,), dtype=tf.int32),
         ),
-    ).padded_batch(batch_size)
+    ).padded_batch(batch_size).cache()
 
 
 def get_labels(ds: tf.data.Dataset) -> np.ndarray:
